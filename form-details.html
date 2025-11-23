@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Form Details</title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+  <div class="details" role="main">
+    <h2>Submitted Contact Details</h2>
+    <div id="noData" style="color:#ffb3b3">No submitted data found.</div>
+    <div id="dataContainer" style="display:none;">
+      <div class="detail-row"><strong>Name:</strong> <span id="dName"></span></div>
+      <div class="detail-row"><strong>Email:</strong> <span id="dEmail"></span></div>
+      <div class="detail-row"><strong>Message:</strong> <div id="dMsg" style="margin-top:6px; color:#ccc;"></div></div>
+      <div class="detail-row"><strong>Submitted at:</strong> <span id="dTime"></span></div>
+
+      <a href="index.html" class="back-link">Back to site</a>
+      <button id="clearBtn" style="margin-left:12px;padding:8px 12px;border-radius:8px;border:none;cursor:pointer;">Clear stored data</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const raw = localStorage.getItem('contactFormData');
+      const noData = document.getElementById('noData');
+      const dataContainer = document.getElementById('dataContainer');
+      if (!raw) {
+        noData.style.display = 'block';
+        dataContainer.style.display = 'none';
+        return;
+      }
+      try {
+        const data = JSON.parse(raw);
+        document.getElementById('dName').textContent = data.name || '';
+        document.getElementById('dEmail').textContent = data.email || '';
+        document.getElementById('dMsg').textContent = data.message || '';
+        document.getElementById('dTime').textContent = data.time ? new Date(data.time).toLocaleString() : '';
+        noData.style.display = 'none';
+        dataContainer.style.display = 'block';
+      } catch (e) {
+        noData.textContent = 'Stored data is corrupted.';
+        console.error(e);
+      }
+
+      document.getElementById('clearBtn').addEventListener('click', function () {
+        localStorage.removeItem('contactFormData');
+        location.reload();
+      });
+    });
+  </script>
+</body>
+</html>

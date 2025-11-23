@@ -10,14 +10,22 @@
   <header>
     <nav class="navbar">
       <h2 class="logo">PORTFOLIO</h2>
+
+      <!-- Theme toggle -->
+      <div class="nav-actions">
+        <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+      </div>
+
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contacts</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contacts</a></li>
       </ul>
     </nav>
   </header>
 
+  <main id="home">
   <section class="hero">
     <div class="hero-content">
       <p class="intro">Hello<span class="dot">.</span></p>
@@ -35,16 +43,30 @@
     </div>
   </section>
 
-  <div class="skills">
-    <p>HTML</p>
-    <p>CSS</p>
-    <p>JavaScript</p>
-    <p>Java</p>
-    <p>Git</p>
-    <p>Github</p>
-  </div>
+  <!--Skills with animated progress bars -->
+  <section class="skills-section" id="skills">
+    <h2>Skills</h2>
+    <div class="skills-bars">
+      <div class="skill">
+        <p>HTML <span class="skill-percent">90%</span></p>
+        <div class="bar"><div class="bar-fill" data-percent="90"></div></div>
+      </div>
+      <div class="skill">
+        <p>CSS <span class="skill-percent">88%</span></p>
+        <div class="bar"><div class="bar-fill" data-percent="88"></div></div>
+      </div>
+      <div class="skill">
+        <p>JavaScript <span class="skill-percent">75%</span></p>
+        <div class="bar"><div class="bar-fill" data-percent="75"></div></div>
+      </div>
+      <div class="skill">
+        <p>Git <span class="skill-percent">70%</span></p>
+        <div class="bar"><div class="bar-fill" data-percent="70"></div></div>
+      </div>
+    </div>
+  </section>
 
-  <section class="about">
+  <section class="about" id="about">
     <div class="about-text">
       <h2>About me</h2>
       <p>
@@ -72,47 +94,111 @@
     </div>
   </section>
 
-<section class="projects" id="projects">
-  <h2>Projects</h2>
-  <p class="subtitle">Some of my favorite creations and experiments</p>
+  <!-- Note about Flexbox vs Grid + using Grid for projects -->
+  <section class="layout-note">
+    <h2>Flexbox vs Grid</h2>
+    <p>
+      Flexbox is ideal for one-dimensional layouts (rows or columns). Grid is ideal for two-dimensional layouts (rows and columns together). Below, Projects are arranged using CSS Grid for better multi-column responsiveness.
+    </p>
+  </section>
 
-  <div class="project-grid">
-    <!-- Project 1 -->
-    <div class="project-card">
-      <div class="project-img">
-        <img src="project1.jpg" alt="Portfolio Website">
-        <div class="overlay">
-          <a href="#" class="view-btn">View Project</a>
-        </div>
-      </div>
-      <h3>Portfolio Website</h3>
-      <p>A personal portfolio built with HTML, CSS, and JavaScript to showcase my work and skills.</p>
-    </div>
+  <section class="projects" id="projects">
+    <h2>Projects</h2>
+    <p class="subtitle">Some of my favorite creations and experiments</p>
 
-    <!-- Project 2 -->
-    <div class="project-card">
-      <div class="project-img">
-        <img src="project2.jpg" alt="Weather App">
-        <div class="overlay">
-          <a href="#" class="view-btn">View Project</a>
+    <!-- project cards (clickable via JS; NO <a> tags for actual link navigation) -->
+    <div class="project-grid" id="projectGrid">
+      <div class="project-card" data-url="https://prerita654.github.io/portfolio-PreritaDahal/">
+        <div class="project-img">
+          <img src="project1.jpg" alt="Portfolio Website">
+          <div class="overlay">
+            <span class="view-btn">Open Project</span>
+          </div>
         </div>
+        <h3>Portfolio Website</h3>
+        <p>A personal portfolio built with HTML, CSS, and JavaScript to showcase my work and skills.</p>
       </div>
-      <h3>Weather App</h3>
-      <p>A real-time weather forecasting app using OpenWeather API with a clean and responsive UI.</p>
-    </div>
 
-    <!-- Project 3 -->
-    <div class="project-card">
-      <div class="project-img">
-        <img src="project3.jpg" alt="Movie App">
-        <div class="overlay">
-          <a href="#" class="view-btn">View Project</a>
+      <div class="project-card" data-url="https://prerita654.github.io/PreritaWeatherApp/index.html.html">
+        <div class="project-img">
+          <img src="project2.jpg" alt="Weather App">
+          <div class="overlay">
+            <span class="view-btn">Open Project</span>
+          </div>
         </div>
+        <h3>Weather App</h3>
+        <p>A real-time weather forecasting app using OpenWeather API with a clean and responsive UI.</p>
       </div>
-      <h3>Movie App</h3>
-      <p>A dynamic movie website built using HTML, CSS, JavaScript, and PHP.</p>
+
+      <div class="project-card" data-url="https://prerita654.github.io/PreritaMovieApp/">
+        <div class="project-img">
+          <img src="project3.jpg" alt="Movie App">
+          <div class="overlay">
+            <span class="view-btn">Open Project</span>
+          </div>
+        </div>
+        <h3>Movie App</h3>
+        <p>A dynamic movie website built using HTML, CSS, JavaScript, and PHP.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Media (video, audio, canvas) -->
+  <section class="media-section">
+    <h2>Media</h2>
+    <div class="media-grid">
+      <div class="media-item">
+        <video controls width="100%" id="sampleVideo">
+          <source src="sample-video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p>Sample Video</p>
+      </div>
+      <div class="media-item">
+        <audio controls id="sampleAudio">
+          <source src="sample-audio.mp3" type="audio/mpeg">
+          Your browser does not support the audio tag.
+        </audio>
+        <p>Sample Audio</p>
+      </div>
+      <div class="media-item">
+        <canvas id="demoCanvas" width="300" height="180" aria-label="Demo Canvas"></canvas>
+        <p>Canvas Drawing</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image Slider -->
+  <section class="slider-section" aria-label="Image slider">
+    <h2>Gallery</h2>
+    <div class="slider">
+      <button class="slider-btn prev" aria-label="Previous">‹</button>
+      <div class="slides">
+        <img src="slide1.jpg" class="slide active" alt="Slide 1">
+        <img src="slide2.jpg" class="slide" alt="Slide 2">
+        <img src="slide3.jpg" class="slide" alt="Slide 3">
+      </div>
+      <button class="slider-btn next" aria-label="Next">›</button>
+    </div>
+  </section>
+
+  <!-- Contact form -->
+  <section id="contact">
+    <form id="contactForm">
+      <h2>Contact Us</h2>
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Message" required></textarea>
+      <button type="submit">Send</button>
+      <p id="status"></p>
+    </form>
+  </section>
+
+  <!-- Back to top button -->
+  <button id="backToTop" title="Back to top">↑</button>
+
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

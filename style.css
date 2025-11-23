@@ -9,6 +9,7 @@ body {
   background-color: #111418;
   color: #fff;
   line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
 }
 
 .navbar {
@@ -39,6 +40,7 @@ body {
   font-weight: 600;
 }
 
+/* Hero */
 .hero {
   display: flex;
   justify-content: space-between;
@@ -123,6 +125,7 @@ body {
   border-radius: 50%;
 }
 
+/* Skills top bar (kept minimal) */
 .skills {
   display: flex;
   justify-content: center;
@@ -134,6 +137,7 @@ body {
   flex-wrap: wrap;
 }
 
+/* About */
 .about {
   display: flex;
   justify-content: space-between;
@@ -182,6 +186,304 @@ body {
   border-radius: 10px;
 }
 
+.projects {
+  padding: 80px;
+  background-color: #0e1115;
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.subtitle {
+  color: #bbb;
+  margin-bottom: 50px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  align-items: stretch;
+}
+
+.project-card {
+  background: #1a1d23;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(255,92,92,0.2);
+}
+
+.project-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  border-bottom: 3px solid #ff5c5c;
+}
+
+.project-card:hover .project-img img {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 20, 24, 0.7);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover .overlay {
+  opacity: 1;
+}
+
+.view-btn {
+  background: #ff5c5c;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.view-btn:hover {
+  background: #ff7b7b;
+  transform: scale(1.05);
+}
+
+.project-card h3 {
+  color: #fff;
+  margin: 15px 20px 8px;
+}
+
+.project-card p {
+  color: #aaa;
+  font-size: 0.95rem;
+  margin: 0 20px 20px;
+  line-height: 1.5;
+}
+
+#contactForm {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #1a1d23;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background: #0e1115;
+  color: #fff;
+  font-size: 14px;
+  border: 1px solid #2b2f35;
+  transition: border-color 0.3s;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+  border-color: #ff5c5c;
+}
+
+#contactForm button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #ff5c5c;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#contactForm button:hover {
+  background: #ff7878;
+}
+
+#status {
+  text-align: center;
+  color: #ff5c5c;
+  font-size: 14px;
+}
+
+.skills-section {
+  padding: 50px 80px;
+  background: linear-gradient(180deg, rgba(255,92,92,0.03), transparent 40%);
+}
+
+.skills-bars {
+  max-width: 900px;
+  margin: 20px auto;
+  display: grid;
+  gap: 18px;
+}
+
+.skill p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: #ddd;
+}
+
+.bar {
+  height: 12px;
+  background: #0e1115;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #222;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff5c5c, #ff7b7b);
+  border-radius: 12px;
+  transition: width 1s ease-in-out;
+}
+
+.media-section {
+  padding: 40px 80px;
+}
+
+.media-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.media-item {
+  flex: 1;
+  min-width: 260px;
+  background: #0f1316;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.slider-section {
+  padding: 40px 80px;
+}
+
+.slider {
+  position: relative;
+  max-width: 900px;
+  margin: 20px auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  display: none;
+  object-fit: cover;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slider-btn {
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+#demoCanvas {
+  border-radius: 8px;
+  background: #0b0c0d;
+  display: block;
+  margin: 0 auto;
+}
+
+#backToTop {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  background: #ff5c5c;
+  border: none;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+}
+
+#themeToggle {
+  background: transparent;
+  border: 1px solid #2b2f35;
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.light-mode {
+  background-color: #f6f7f8;
+  color: #0b0c0d;
+}
+
+.light-mode .navbar,
+.light-mode .about-icons .icon-box,
+.light-mode .project-card,
+.light-mode #contactForm,
+.light-mode .media-item {
+  background: #fff;
+  color: #0b0c0d;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.light-mode .nav-links a { color: #333; }
+.light-mode .logo { color: #111; }
+
+.layout-note {
+  padding: 30px 80px;
+  color: #ccc;
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 20px;
@@ -203,116 +505,22 @@ body {
   .skills {
     padding: 15px;
   }
+
+  .about, .projects, .skills-section {
+    padding: 30px 20px;
+  }
+
+  .slider {
+    padding: 0 10px;
+  }
 }
-
-  .projects {
-  padding: 80px;
-  background-color: #0e1115;
-  text-align: center;
-  }
-
-  .projects h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: #fff;
-  }
-
-  .subtitle {
-  color: #bbb;
-  margin-bottom: 50px;
-  }
-
-  .project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  }
-
-  .project-card {
-  background: #1a1d23;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(255,92,92,0.2);
-  }
-
-  .project-img {
-  position: relative;
-  overflow: hidden;
-  }
-
-  .project-img img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-  border-bottom: 3px solid #ff5c5c;
-  }
-
-/* Hover Zoom + Overlay */
-  .project-card:hover .project-img img {
-  transform: scale(1.1);
-  }
-
-  .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(17, 20, 24, 0.7);
-  opacity: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: opacity 0.4s ease;
-  }
-
-  .project-card:hover .overlay {
-  opacity: 1;
-  }
-
-  .view-btn {
-  background: #ff5c5c;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s ease, transform 0.3s ease;
-  }
-
-  .view-btn:hover {
-  background: #ff7b7b;
-  transform: scale(1.05);
-  }
-
-  .project-card h3 {
-  color: #fff;
-  margin: 15px 20px 8px;
-  }
-
-  .project-card p {
-  color: #aaa;
-  font-size: 0.95rem;
-  margin: 0 20px 20px;
-  line-height: 1.5;
-  }
-
-/* Responsive Adjustments */
-  @media (max-width: 768px) {
-  .projects {
-    padding: 50px 20px;
-  }
-
-  .project-card h3 {
-    font-size: 1.1rem;
-  }
-
-  .project-card p {
-    font-size: 0.9rem;
-  }
-  }
-
+.details {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 24px;
+      background: #1a1d23;
+      border-radius: 12px;
+    }
+    .details h2 { margin-bottom: 12px; }
+    .detail-row { margin-bottom: 10px; color: #ddd; }
+    .back-link { display:inline-block; margin-top:16px; padding:8px 12px; background:#ff5c5c; color:#fff; border-radius:8px; text-decoration:none; }
